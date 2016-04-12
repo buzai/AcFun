@@ -1,0 +1,47 @@
+PODS:
+  - AFNetworking (3.0.4):
+    - AFNetworking/NSURLSession (= 3.0.4)
+    - AFNetworking/Reachability (= 3.0.4)
+    - AFNetworking/Security (= 3.0.4)
+    - AFNetworking/Serialization (= 3.0.4)
+    - AFNetworking/UIKit (= 3.0.4)
+  - AFNetworking/NSURLSession (3.0.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.0.4)
+  - AFNetworking/Security (3.0.4)
+  - AFNetworking/Serialization (3.0.4)
+  - AFNetworking/UIKit (3.0.4):
+    - AFNetworking/NSURLSession
+  - BarrageRenderer (1.6.0)
+  - KRVideoPlayer (1.0.1)
+  - MJExtension (3.0.10)
+  - QHDanumuDemo (1.4)
+  - SDCycleScrollView (1.61):
+    - SDWebImage (~> 3.7)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
+
+DEPENDENCIES:
+  - AFNetworking
+  - BarrageRenderer (= 1.6.0)
+  - KRVideoPlayer
+  - MJExtension (~> 3.0.4)
+  - QHDanumuDemo (~> 1.4)
+  - SDCycleScrollView (~> 1.6)
+  - SDWebImage (~> 3.7)
+
+SPEC CHECKSUMS:
+  AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  BarrageRenderer: a41bf2260c5ec66b974ec685e9da840c1a8c358f
+  KRVideoPlayer: 08918da1b99cae35fd4c15b2ec2b49358d4c985f
+  MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
+  QHDanumuDemo: 7d3225bda5292eb994ff27211bc9f662a576ac79
+  SDCycleScrollView: a002d85b30cfa9d0ac74069cd3973ca19ff4f22f
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+
+PODFILE CHECKSUM: fb3a732b75fd53912daa28ff72cd3225c533b2a1
+
+COCOAPODS: 1.0.0.beta.2
