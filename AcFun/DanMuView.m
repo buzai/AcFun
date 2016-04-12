@@ -15,7 +15,12 @@
 #import "NSTimer+EOCBlocksSupport.h"
 #import <BarrageRenderer.h>
 #import <KRVideoPlayerController.h>
+
+#define playApi @"http://vplay.aixifan.com/des/20160411/3385994_mp4/3385994_lvbr.mp4?k=852abe1d683f8f9c11a9267583b3168b&t=1460474816"
+#define danmuApi @"http://static.comment.acfun.tv/V2/3385994?pageNo=1&pageSize=500"
+
 @interface DanMuView ()<QHDanmuSendViewDelegate>
+
 @property (nonatomic, strong) QHDanmuManager *danmuManager;
 @property (nonatomic, strong) QHDanmuSendView *danmuSendV;
 @property (nonatomic) BOOL bPlaying;
@@ -27,6 +32,9 @@
 
 @end
 
+
+
+
 @implementation DanMuView
 
 - (void)viewDidLoad {
@@ -35,30 +43,20 @@
     BarrageRenderer * render = [[BarrageRenderer alloc] init];
     [self.view addSubview:render.view];
     
-    
-    
-    
-    
     self.videoController = [[KRVideoPlayerController alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width*(9.0/16.0))];
     
+    self.videoController.contentURL = [NSURL URLWithString:playApi];
     
-    http://api.aixifan.com/plays/650596/realSource
-    
-    self.videoController.contentURL = [NSURL URLWithString:@"http://vplay.aixifan.com/des/acf-44/650596_mp4/650596_lvbr.mp4?k=4f897eab569a1d48cfbd920d26159791&t=1454087113"];
-    //    [self.videoController showInWindow];
 
     [self.view addSubview:self.videoController.view];
     
-//    curl -H "Host: static.comment.acfun.tv" -H "Accept: */*" -H "Accept-Language: zh-Hans-CN;q=1, en-CN;q=0.9" -H "User-Agent: AcFun/4.1.0 (iPhone; iOS 9.1; Scale/2.00)" --compressed http://static.comment.acfun.tv/V2/650596?pageNo=1&pageSize=500
-//    // Do any additional setup after loading the view.
     
     AFHTTPSessionManager * mgr = [AFHTTPSessionManager manager];
-    
-//    NSDictionary * param = @{@"pageNo":@"1",@"pageSize":@"500"};
+    mgr.requestSerializer = [AFJSONRequestSerializer serializer];
+    mgr.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
 
     NSMutableArray *tempInfos = [NSMutableArray array];
-    [mgr GET:@"http://static.comment.acfun.tv/V2/650596?pageNo=1&pageSize=500" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@",responseObject);
+    [mgr GET:danmuApi parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         for (NSArray * array in responseObject) {
             NSArray *userArray = [DanMuModle mj_objectArrayWithKeyValuesArray:array];
@@ -69,9 +67,8 @@
                 NSDictionary * dict = @{@"c":dan.m,@"v":strarray[0]};
                 [tempInfos addObject:dict];
             }
-            NSLog(@"%@",tempInfos);
-            
-            NSLog(@"%@",tempInfos);
+//            NSLog(@"%@",tempInfos);
+//            NSLog(@"%@",tempInfos);
             NSArray *infos = [tempInfos sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
                 CGFloat v1 = [[obj1 objectForKey:kDanmuTimeKey] floatValue];
                 CGFloat v2 = [[obj2 objectForKey:kDanmuTimeKey] floatValue];
@@ -80,33 +77,21 @@
                 
                 return result;
             }];
-//            tempInfos = nil;
-            //    NSLog(@"11111%@", infos);
             
-            self.danmuManager = [[QHDanmuManager alloc] initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width,200) data:infos inView:self.view durationTime:1];
+            self.danmuManager = [[QHDanmuManager alloc]
+                                        initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width,self.view.frame.size.width*(9.0/16.0)-50)
+                                                 data:infos inView:self.view
+                                         durationTime:1];
             
             self.countTime = -1;
             [self.danmuManager initStart];
-            
-            
             [self start:nil];
 
-
         }
-        
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
-    
-//    NSString *path = [[NSBundle mainBundle] bundlePath];
-//    path = [[path stringByAppendingPathComponent:@"QHDanmuSource"] stringByAppendingPathExtension:@"plist"];
-//    NSArray *tempInfos = [NSArray arrayWithContentsOfFile:path];
-
-    
-    
-    
-    
 
 
 }
@@ -262,17 +247,8 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
