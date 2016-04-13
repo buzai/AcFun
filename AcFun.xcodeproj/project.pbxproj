@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		740948D21CBE8BA0008700E7 /* httpApiTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 740948D11CBE8BA0008700E7 /* httpApiTools.m */; };
 		740C10A61C5B38EB000E5BE6 /* holder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 740C10A51C5B38EB000E5BE6 /* holder.jpg */; };
 		740C10A91C5B6AB1000E5BE6 /* KCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 740C10A81C5B6AB1000E5BE6 /* KCollectionViewFlowLayout.m */; };
 		740C10AC1C5BA196000E5BE6 /* DanMuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 740C10AB1C5BA196000E5BE6 /* DanMuView.m */; };
@@ -45,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		740948D01CBE8BA0008700E7 /* httpApiTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = httpApiTools.h; sourceTree = "<group>"; };
+		740948D11CBE8BA0008700E7 /* httpApiTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = httpApiTools.m; sourceTree = "<group>"; };
 		740C10A51C5B38EB000E5BE6 /* holder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = holder.jpg; sourceTree = "<group>"; };
 		740C10A71C5B6AB1000E5BE6 /* KCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		740C10A81C5B6AB1000E5BE6 /* KCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCollectionViewFlowLayout.m; sourceTree = "<group>"; };
@@ -182,6 +185,8 @@
 			children = (
 				740C10AA1C5BA196000E5BE6 /* DanMuView.h */,
 				740C10AB1C5BA196000E5BE6 /* DanMuView.m */,
+				740948D01CBE8BA0008700E7 /* httpApiTools.h */,
+				740948D11CBE8BA0008700E7 /* httpApiTools.m */,
 				740C10AD1C5BA9A5000E5BE6 /* DanMuModle.h */,
 				740C10AE1C5BA9A5000E5BE6 /* DanMuModle.m */,
 				740C10B01C5BB36C000E5BE6 /* NSTimer+EOCBlocksSupport.h */,
@@ -424,6 +429,7 @@
 				740C10A91C5B6AB1000E5BE6 /* KCollectionViewFlowLayout.m in Sources */,
 				749219E61C59F875006E429E /* main.m in Sources */,
 				740C10AF1C5BA9A5000E5BE6 /* DanMuModle.m in Sources */,
+				740948D21CBE8BA0008700E7 /* httpApiTools.m in Sources */,
 				749219F21C59F875006E429E /* AcFun.xcdatamodeld in Sources */,
 				740C10AC1C5BA196000E5BE6 /* DanMuView.m in Sources */,
 				740C10B21C5BB36C000E5BE6 /* NSTimer+EOCBlocksSupport.m in Sources */,
